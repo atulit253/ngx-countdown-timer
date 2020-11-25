@@ -37,7 +37,15 @@ export class CountdownTimer implements OnInit, OnDestroy{
 
   private getTimeDiff( datetime, useAsTimer = false ) {
       datetime = new Date( datetime ).getTime();
-      var now = new Date().getTime();
+      
+      nowDate=new Date();
+        nowDate=new Date((typeof nowDate === "string" ? new Date(nowDate) : nowDate).toLocaleString("en-US", {timeZone: 'Europe/Berlin'}))
+        var /** @type {?} */ now = nowDate.getTime();
+
+        console.log("****************");
+        console.log(datetime);
+        console.log(nowDate);
+        console.log("****************");
   
       if( isNaN(datetime) )
       {
